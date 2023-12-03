@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Laboratorio12.ViewModels"
+             x:Class="Laboratorio12.Views.TaskPage"
+               BackgroundColor="#95DA80">
+   <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="#120204" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="0,0,0,2" />
+                
+
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="BackgroundColor" Value="#62AD9C" />
+                <Setter Property="PlaceholderColor" Value="#f0f2f5" />
+                <Setter Property="HeightRequest" Value="60" />
+             
+            </Style>
+
+            <Style TargetType="Frame" x:Key="EntryFrameStyle">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#DF2034" />
+               
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="Margin" Value="0,10,0,0" />
+                <Setter Property="CornerRadius" Value="50" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewmodels:TaskViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" Spacing="5">
+        <Label FontSize="Large" Text=" 🍃 LABO12-Maucaylle🍃🎄" HorizontalOptions="Center" FontAttributes="Bold,Italic" TextColor="PaleGreen" />
+
+        <Label FontSize="Large" Text="🎄Title" />
+        <Frame Style="{StaticResource EntryFrameStyle}">
+            <Entry FontSize="Large" Text="{Binding Title}" />
+        </Frame>
+
+        <Label FontSize="Large" Text="Description" />
+        <Frame Style="{StaticResource EntryFrameStyle}">
+            <Entry FontSize="Large" Text="{Binding Description}" />
+        </Frame>
+
+        <Label FontSize="Large" Text="Status" />
+            <Frame Style="{StaticResource EntryFrameStyle}">
+                <Entry FontSize="Large" Text="{Binding Status}" />
+        </Frame>
+
+        <Button Text="Save" Command="{Binding Save}" />
+        <Button Text="Get" Command="{Binding Get}" BackgroundColor="PaleGoldenrod" />
+
+        <ListView ItemsSource="{Binding Tasks}" VerticalOptions="FillAndExpand" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="#49D8B7" Padding="9" Margin="0,5,0,5" CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="Titulo" FontAttributes="Bold,Italic" />
+                                <Label Text="{Binding Title}" />
+
+                                <Label Text="Descripcion" FontAttributes="Bold,Italic" />
+                                <Label Text="{Binding Description}" />
+
+                                <Label Text="Status" FontAttributes="Bold,Italic" />
+                                <Label Text="{Binding Status}" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>
