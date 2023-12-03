@@ -88,7 +88,7 @@ namespace Laboratorio12.ViewModels
             
             Tasks.Clear();
 
-            // Agrega las tareas almacenadas temporalmente a la lista actual
+      
             foreach (var task in _storedTasks)
             {
                 Tasks.Add(task);
