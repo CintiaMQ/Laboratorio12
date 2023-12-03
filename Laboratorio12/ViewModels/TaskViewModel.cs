@@ -74,10 +74,10 @@ namespace Laboratorio12.ViewModels
                 Status = Status
             };
 
-            // Solo agrega la tarea a la lista temporal (_storedTasks)
+            
             _storedTasks.Add(newTask);
 
-            // Limpia los campos después de guardar
+ 
             Title = string.Empty;
             Description = string.Empty;
             Status = string.Empty;
@@ -85,7 +85,7 @@ namespace Laboratorio12.ViewModels
 
         private void ExecuteGet()
         {
-            // Limpia la lista actual
+            
             Tasks.Clear();
 
             // Agrega las tareas almacenadas temporalmente a la lista actual
